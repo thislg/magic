@@ -1,5 +1,5 @@
 # magic
-define bash functions on a per-directory basis
+define shell functions on a per-directory basis
 
 # Installation
 
@@ -9,9 +9,17 @@ define bash functions on a per-directory basis
 
 `make DESTDIR=stage install` for a staged install.
 
-Add the following line to your .bashrc or .zshrc:
+Add the following line to your shell's configuration file:
 
-    source /usr/lib/magic/magic
+For bash (.bashrc) or zsh (.zshrc):
+```sh
+source /usr/lib/magic/magic
+```
+
+For fish (~/.config/fish/config.fish):
+```fish
+source /usr/lib/magic/magic.fish
+```
 
 If you used a different `PREFIX`, adjust the path accordingly.
 
@@ -26,6 +34,8 @@ Upon entering the directory the `.spells` file will be sourced and the
 functions defined in it will be available at the prompt. Upon leaving
 the directory all functions will be `unset` again (provided the
 `.spells` script correctly echoes their names).
+
+For fish shell, use `.spells.fish` instead. Note: echo is not needed for fish spells as the script looks for functions directly.
 
 # Examples
 
